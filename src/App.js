@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './main.css';
 
 
@@ -16,9 +15,6 @@ import cloudyImg from './png/011-cloudy.png';
 import cloudImg from './png/001-cloud.png';
 
 const axios = require('axios');
-
-
-var data;
 
 class App extends React.Component {
   constructor(props){
@@ -66,7 +62,7 @@ setWeathImg(code){
     default:
       return cloudImg;
   }
-}
+}lifyt
 
 
 setData(data){
