@@ -113,7 +113,7 @@ setData(data){
         <div class="mt-2 f-pacifico text-center text-white text-4xl">
           BlueWeather <sup class="text-red-400 f-jetBrains">V3</sup>
         </div>
-        <div class="bg-main rounded p-4 mt-1">
+        <div class="select-none bg-main rounded p-4 mt-1">
 
         <div className="">
             <div className="flex justify-center">
