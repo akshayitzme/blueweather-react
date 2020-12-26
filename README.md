@@ -1,6 +1,6 @@
 # BlueWeather<sup>V3</sup>
 
-Simple Weather Information App Created In ReactJs. Provides Most Accurate Weather Information's from a reliable source.
+Weather Information App Created In ReactJs. Provides Most Accurate Weather Information's from a reliable source.
 
 ## Features
 - Fetch Current Weather of Any City.
