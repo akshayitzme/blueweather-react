@@ -179,8 +179,12 @@ setData(data){
         Coded with 💜 in ReactJs
         </div>
         <div class="ml-auto">
-        <i class="fab fa-github-square fa-2x" onclick="location.href='https://github.com/akshayitzme'"></i>
-        <i class="ml-2 tg-clr text-white fab fa-telegram fa-2x" onclick="location.href='https://t.me/akshayitzme'"></i>
+        <i class="fab fa-github-square fa-2x" onClick={()=>{
+          window.location.href='https://github.com/akshayitzme'
+        }}></i>
+        <i class="ml-2 tg-clr text-white fab fa-telegram fa-2x" onClick={()=>{
+          window.location.href='https://t.me/akshayitzme'
+        }}></i>
         </div>
       </footer>
       </div>
