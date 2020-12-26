@@ -180,7 +180,7 @@ setData(data){
         </div>
         <div class="ml-auto">
         <i class="fab fa-github-square fa-2x" onClick={()=>{
-          window.location.href='https://github.com/akshayitzme'
+          window.location.href='https://github.com/akshayitzme/blueweather-v3'
         }}></i>
         <i class="ml-2 tg-clr text-white fab fa-telegram fa-2x" onClick={()=>{
           window.location.href='https://t.me/akshayitzme'
