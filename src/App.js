@@ -1,4 +1,3 @@
-import dotenv from 'dotenv';
 import React from 'react';
 import './main.css';
 
@@ -97,7 +96,7 @@ setData(data){
 
 
   getWeather(){
-    const apikey= process.env.REACT_APP_apiKey;
+    const apikey= 'e210c112d80b41728f2335ac11bcd82b';
     let city= document.querySelector('#cityInput').value;
     axios.get(`https://api.weatherbit.io/v2.0/current?city=${city}&key=${apikey}`)
       .then(resp => {
