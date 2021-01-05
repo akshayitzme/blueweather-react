@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 
-
+import loaderGIF from './gif/91.gif';
 import rfIcon from './png/043-warm.png';
 import huIcon from './png/025-humidity.png';
 import presIcon from './png/050-windy-3.png';
@@ -20,6 +20,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      isLoading: false,
       temp: '',
       weathDesc: '',
       weathCode: '',
@@ -62,7 +63,7 @@ setWeathImg(code){
     default:
       return cloudImg;
   }
-}lifyt
+}
 
 
 setData(data){
@@ -80,6 +81,7 @@ setData(data){
     quote= this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)];
 
     this.setState({
+      isLoading: false,
       temp: temp,
       cityName: cityName,
       countryName: countryName,
@@ -94,8 +96,10 @@ setData(data){
     document.querySelector('#main').classList.remove('hidden');
   }
 
-
   getWeather(){
+    this.setState({
+      isLoading: true
+    })
     const apikey= 'e210c112d80b41728f2335ac11bcd82b';
     let city= document.querySelector('#cityInput').value;
     axios.get(`https://api.weatherbit.io/v2.0/current?city=${city}&key=${apikey}`)
@@ -106,7 +110,8 @@ setData(data){
       });
   }
   render(){
-
+    let btn= <i className="fas fa-2x fa-arrow-circle-right text-indigo-500"></i>;
+    let loader= <img class="w-10" src={loaderGIF} alt="loader"/>;
     return (
     <div className="container-fluid">
       <div class="grid flex justify-center gap-4 mb-10 md:mb-0">
@@ -119,8 +124,8 @@ setData(data){
             <div className="flex justify-center">
                 <i className="fas fa-map-marker-alt fa-2x mr-2 text-indigo-500"></i>
                 <input type="text" className="bg-transparent border-2 border-indigo-900 text-center rounded p-1" placeholder="City Name" name="" id="cityInput"/>
-                <button className="px-2 ml-3 bg-white rounded" onClick={this.getWeather}>
-                    <i className="fas fa-arrow-circle-right text-indigo-500"></i>
+                <button className="px-2 ml-3  rounded" onClick={this.getWeather}>
+                    {this.state.isLoading===true ? loader : btn}
                 </button>
             </div>
         </div>
