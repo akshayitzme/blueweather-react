@@ -11,7 +11,7 @@ const WeathCard = (props) => {
               {props.temp}
               <sup>℃</sup>
             </span>
-            <img src={props.weathImg} alt="" className="weathImage" srcset="" />
+            <img src={props.weathImg} alt="Weather Icon" className="weathImage" srcset="" />
           </div>
 
           <span className="clr-3 fw-bold">Feels like {props.appTemp}℃</span>

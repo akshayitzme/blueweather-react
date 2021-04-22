@@ -17,9 +17,9 @@ const WindSpdCard= (props)=>{
                             <span>m/s</span> 
                         </div>
                         <div className="d-flex flex-column justify-content-center ">
-                            <a data-toggle="tooltip" data-placement="top" title="direction the wind is coming from" className="border-bottom border-2 border-warning text- clr-31 fw-bold text-decoration-none text-capitalize">Direction: <span className="text-white">{props.windDir}</span></a>
-                            <a data-toggle="tooltip" data-placement="top" title="refers to the fraction of the sky obscured by clouds when observed from a particular location" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Clouds: <span className="text-white">{props.cloudIndex}</span></a>
-                            <a data-toggle="tooltip" data-placement="top" title="Air quality is a measure of how clean or polluted the air is" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Air Quality: <span className="text-white">{props.airQuality}</span></a>
+                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="direction the wind is coming from" className="border-bottom border-2 border-warning text- clr-31 fw-bold text-decoration-none text-capitalize">Direction: <span className="text-white">{props.windDir}</span></a>
+                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="refers to the fraction of the sky obscured by clouds when observed from a particular location" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Clouds: <span className="text-white">{props.cloudIndex}</span></a>
+                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="Air quality is a measure of how clean or polluted the air is" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Air Quality: <span className="text-white">{props.airQuality}</span></a>
                         </div>
                     </div>
 
