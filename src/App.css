@@ -205,3 +205,6 @@ body {
 .loader {
   width: 1.7em;
 }
+.list-none{
+  list-style: none;
+}

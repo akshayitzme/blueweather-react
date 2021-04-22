@@ -61,7 +61,7 @@ const ReportCard = (props) => {
   <div>
     {props.isInit ?
 
-    (<div className="bg-5 text-white fw-bold rounded p-2 mt-2">
+    (<div className="bg-5 text-white fw-bold rounded p-2 mt-2 list-none">
     
       {
         tips.map(item=>{
