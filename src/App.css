@@ -1,0 +1,207 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Itim&display=swap&family=Merriweather:ital@1&display=swap&family=Righteous&display=swap&family=Poppins:wght@300);
+body {
+  box-sizing: border-box;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.headAnim {
+  color: #fff;
+}
+@keyframes colorchanged {
+  0% {
+    color: #eb008b;
+  }
+  25% {
+    color: #fff100;
+  }
+  50% {
+    color: #01a54f;
+  }
+  75% {
+    color: #00adef;
+  }
+  100% {
+    color: #eb008b;
+  }
+}
+@keyframes colorchange {
+  0% {
+    color: #fff;
+  }
+  25% {
+    color: #0ff;
+  }
+  50% {
+    color: #ff0;
+  }
+  100% {
+    color: #fff;
+  }
+}
+body {
+  box-sizing: border-box;
+  background: #871fef;
+  background: linear-gradient(
+    90deg,
+    rgba(135, 31, 239, 1) 0,
+    rgba(221, 197, 250, 1) 100%
+  );
+}
+.bg-1 {
+  background-color: #ddc5fa;
+}
+.bg-2 {
+  background-color: #0019ea;
+}
+.bg-3 {
+  background-color: #7c19e8;
+}
+.bg-4 {
+  background-color: #af71f6;
+}
+.bg-5 {
+  background-color: #af71f6;
+}
+.bg-6 {
+  background-color: #c69df8;
+}
+.bg-7 {
+  background-color: #ddc5fa;
+}
+.bg-8 {
+  background-color: #f2e7fd;
+}
+.bg-9 {
+  background-color: #b998f7;
+}
+.bg-10 {
+  background-color: rgba(255, 255, 255, 0.384);
+}
+.gbc-1 {
+  background: #ab67f0;
+  background: linear-gradient(
+    90deg,
+    rgba(171, 103, 240, 1) 0,
+    rgba(198, 157, 248, 1) 100%
+  );
+}
+.border-1 {
+  border-color: rgba(255, 255, 255, 0.911);
+}
+.clr-1 {
+  color: #5d00db;
+}
+.clr-2 {
+  color: #4100d3;
+}
+.clr-3 {
+  color: #fff;
+}
+.clr-4 {
+  color: #7c19e8;
+}
+.clr-5 {
+  color: #9b4df3;
+}
+.clr-6 {
+  color: #c69df8;
+}
+.clr-7 {
+  color: #ddc5fa;
+}
+.clr-8 {
+  color: #f2e7fd;
+}
+.clr-11 {
+  color: #8a005a;
+}
+.clr-12 {
+  color: #ef006f;
+}
+.clr-13 {
+  color: #f1549e;
+}
+.clr-18 {
+  color: #ffe7f0;
+}
+.clr-19 {
+  color: #d4bff9;
+}
+.clr-20 {
+  color: #f6a235;
+}
+.clr-21 {
+  color: #e54304;
+}
+.clr-22 {
+  color: #ffc77d;
+}
+.clr-28 {
+  color: #fcdeb4;
+}
+.clr-29 {
+  color: #fff2df;
+}
+.clr-30 {
+  color: #e7e168;
+}
+.clr-31 {
+  color: rgba(243, 255, 74, 0.932);
+}
+.clr-32 {
+  color: rgba(255, 255, 255, 0.815);
+}
+.f-1 {
+  font-family: Itim, cursive;
+}
+.f-2 {
+  font-family: Inter, sans-serif;
+}
+.f-3 {
+  font-family: Merriweather, serif;
+}
+.f-4 {
+  font-family: Righteous, cursive;
+}
+.f-5 {
+  font-family: Poppins, sans-serif;
+}
+.celFont {
+  font-size: 4.5em;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+}
+.fs-7 {
+  font-size: 0.9em;
+}
+.full-w {
+  width: 100%;
+}
+.weathImage {
+  width: 10em;
+  margin-top: -2vh;
+  margin-left: -1vh;
+}
+.cityIn {
+  height: 5vh;
+}
+.w-Icon {
+  width: 12vh;
+}
+.logo {
+  width: 2em;
+  margin-top: -1.2vh;
+  margin-right: -1vh;
+}
+#cityInput {
+  color: #fff;
+}
+#cityInput::placeholder {
+  color: #fff;
+}
+.loader {
+  width: 1.7em;
+}

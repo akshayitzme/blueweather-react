@@ -1,201 +1,238 @@
-import React from 'react';
-import './main.css';
+import React, { useState } from "react";
+import axios from "axios";
+import logo from './icons/logo.svg'
+import "./App.css";
 
-import loaderGIF from './gif/91.gif';
-import rfIcon from './png/043-warm.png';
-import huIcon from './png/025-humidity.png';
-import presIcon from './png/050-windy-3.png';
+// UI Components
+import NavBar from "./Components/Navbar";
+import WeathCard from "./Components/WeathCard";
+import Quote from "./Components/Quote";
+import PressureCard from "./Components/PressureCard";
+import HumidityCard from "./Components/HumidityCard";
+import WindSpdCard from "./Components/WindSpdCard";
+import ReportCard from "./Components/ReportCard";
+import Footer from "./Components/Footer";
 
-import stormImg from './png/008-storm.png';
-import rainImg from './png/003-rainy.png';
-import snowImg from './png/012-snowy-1.png';
-import fogImg from './png/017-foog.png';
-import sunImg from './png/039-sun.png';
-import cloudyImg from './png/011-cloudy.png';
-import cloudImg from './png/001-cloud.png';
+import cloudImg from "./icons/001-cloud.png";
+import rainImg from "./icons/003-rainy.png";
+import stormImg from "./icons/008-storm.png";
+import cloudyImg from "./icons/011-cloudy.png";
+import snowImg from "./icons/012-snowy-1.png";
+import fogImg from "./icons/017-foog.png";
+import sunImg from "./icons/039-sun.png";
+import loader from "./icons/810.gif";
 
-const axios = require('axios');
+const inputElm = document.querySelector("#cityInput");
 
-class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: false,
-      temp: '',
-      weathDesc: '',
-      weathCode: '',
-      rf: '',
-      pres: '',
-      hu: '',
-      weathImg: '',
-      quotes:[
-        `“Every day is a good day. There is something to learn, care and celebrate.”― Amit Ray`,
-        `“There is no good day or bad day, only good or bad actions.”― Amit Kalantri,`,
-        `“Many bad days were preceded by a bad night’s sleep.”― Mokokoma Mokhonoana `,
-        `“Even the worst days have an ending, and the best days have a beginning.”― Jennifer Coletta `,
-        `“Tomorrow's a good day for dying.”― Anthony T.Hincks `,
-        '“a bad day is just a filler episode in our lives”― nynetailed '
-      ]
-    };
+function App() {
+  // State
+  const [isInit, setInit] = useState(0);
+  const [isLoading, setLoading] = useState(0);
+  const [temp, setTemp] = useState("");
+  const [appTemp, setAppTemp] = useState("");
+  const [weathDesc, setDesc] = useState("");
+  const [cityName, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [weathImg, setWeathImg] = useState("");
+  const [pres, setPres] = useState("");
+  const [slp, setSlp] = useState("");
+  const [uvi, setUvi] = useState("");
+  const [sr, setSr] = useState("");
+  const [humid, setHumid] = useState("");
+  const [preci, setPreci] = useState("");
+  const [vis, setVis] = useState("");
+  const [dpt, setDpt] = useState("");
+  const [ws, setWs] = useState("");
+  const [windDir, setWindDir] = useState("");
+  const [cloudIndex, setCloudIndex] = useState("");
+  const [airQuality, setAirQuality] = useState("");
 
+  // Functions
 
-    this.getWeather = this.getWeather.bind(this);
-    this.setData = this.setData.bind(this);
-    this.setWeathImg= this.setWeathImg.bind(this);
-  }
+  const pickWeathImg = (code) => {
+    switch (code) {
+      case 200:
+      case 201:
+      case 202:
+      case 230:
+      case 231:
+      case 232:
+      case 233:
+        return stormImg;
+      case 500:
+      case 501:
+      case 502:
+      case 511:
+      case 520:
+      case 521:
+      case 522:
+        return rainImg;
+      case 601:
+      case 602:
+      case 610:
+      case 611:
+      case 612:
+      case 621:
+      case 622:
+      case 623:
+        return snowImg;
+      case 700:
+      case 711:
+      case 721:
+      case 731:
+      case 741:
+      case 751:
+        return fogImg;
+      case 800:
+        return sunImg;
+      case 801:
+      case 802:
+      case 803:
+      case 804:
+      case 900:
+        return cloudyImg;
+      default:
+        return cloudImg;
+    }
+  };
 
+  const getQuote = () => {};
 
+  const getWeather = async () => {
+    let city = document.querySelector("#cityInput").value;
+    console.log(city);
+    if (city.length === 0) {
+      alert("Phaa ! Enter Value");
+    } else {
+      if (!isLoading) setLoading(1);
+      const apikey = "e210c112d80b41728f2335ac11bcd82b";
+      await axios
+        .get(
+          `https://api.weatherbit.io/v2.0/current?city=${city}&key=${apikey}`
+        )
+        .then((resp) => {
+          setLoading(0);
+          if (!isInit) setInit(1);
+          setTemp(Math.round(resp.data.data[0]["temp"]));
+          setWeathImg(pickWeathImg(resp.data.data[0]["weather"]["code"]));
+          setAirQuality(resp.data.data[0]["aqi"]);
+          setAppTemp(Math.round(resp.data.data[0]["app_temp"]));
+          setDesc(resp.data.data[0]["weather"]["description"]);
+          setCity(resp.data.data[0]["city_name"]);
+          setCountry(resp.data.data[0]["country_code"]);
+          setPres(Math.round(resp.data.data[0]["pres"]));
+          setSlp(resp.data.data[0]["slp"]);
+          setUvi(Math.round(resp.data.data[0]["uv"]));
+          setSr(resp.data.data[0]["solar_rad"]);
+          setHumid(Math.round(resp.data.data[0]["rh"]));
+          setPreci(resp.data.data[0]["precip"]);
+          setVis(resp.data.data[0]["vis"]);
+          setDpt(resp.data.data[0]["dewpt"]);
+          setWs(Math.round(resp.data.data[0]["wind_spd"]));
+          setWindDir(resp.data.data[0]["wind_cdir_full"]);
+          setCloudIndex(resp.data.data[0]["clouds"]);
+          setAirQuality(resp.data.data[0]["aqi"]);
+        })
+        .catch((err) => {
+          alert("Error City Not Found , Enter Valid CityName");
+        });
+    }
+  };
 
-setWeathImg(code){
-  switch(code){
-    case 200: case 201: case 202: case 230: case 231: case 232: case 233:
-      return stormImg;
-    case 500: case 501: case 502: case 511: case 520: case 521: case 522:
-      return rainImg;
-    case 601: case 602: case 610: case 611: case 612: case 621: case 622: case 623:
-      return snowImg;
-    case 700: case 711: case 721: case 731: case 741: case 751:
-      return fogImg;
-    case 800:
-      return sunImg;
-    case 801: case 802: case 803: case 804: case 900:
-      return cloudyImg;
-    default:
-      return cloudImg;
-  }
-}
+  return (
+    <div className="App">
+      <div class="app user-select-none">
+        <div class="row">
+          <div class="col-sm-6 col-md-7 ml-2 mx-auto">
+            <NavBar head="BlueWeather" />
+            <div class=" bg-1 mt-2 p-2 w-full shadow rounded">
+              <div className="weathCard shadow gbc-1  rounded p-2">
+                <div className="input-group rounded input-group-sm mb-3">
+                  <input
+                    type="text"
+                    id="cityInput"
+                    className="form-control bg-transparent rounded cityIn"
+                    placeholder="City / District"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm"
+                  />
 
-
-setData(data){
-    let temp, weathDesc, weathCode, rf, pres, hu, weathImg, cityName, countryName, quote;
-    cityName= data['city_name'];
-    countryName= data['country_code'];
-    weathDesc= data['weather']['description'];
-
-    weathCode= data['weather']['code'];
-    weathImg= this.setWeathImg(weathCode);
-    temp= Math.round(data['temp'])
-    rf= Math.round(data['app_temp'])
-    hu= Math.round(data['rh'])
-    pres= Math.round(data['pres'])
-    quote= this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)];
-
-    this.setState({
-      isLoading: false,
-      temp: temp,
-      cityName: cityName,
-      countryName: countryName,
-      weathDesc: weathDesc,
-      weathCode: weathCode,
-      weathImg: weathImg,
-      rf: rf,
-      pres: pres,
-      hu: hu,
-      quote: quote
-    });
-    document.querySelector('#main').classList.remove('hidden');
-  }
-
-  getWeather(){
-    this.setState({
-      isLoading: true
-    })
-    const apikey= 'e210c112d80b41728f2335ac11bcd82b';
-    let city= document.querySelector('#cityInput').value;
-    axios.get(`https://api.weatherbit.io/v2.0/current?city=${city}&key=${apikey}`)
-      .then(resp => {
-      this.setData(resp.data.data[0])})
-      .catch(err=>{
-        alert('Error City Not Found , Enter Valid CityName')
-      });
-  }
-  render(){
-    let btn= <i className="fas fa-2x fa-arrow-circle-right text-indigo-500"></i>;
-    let loader= <img class="w-10" src={loaderGIF} alt="loader"/>;
-    return (
-    <div className="container-fluid">
-      <div class="grid flex justify-center gap-4 mb-10 md:mb-0">
-        <div class="mt-2 f-pacifico text-center text-white text-4xl">
-          BlueWeather <sup class="text-red-400 f-jetBrains">V3</sup>
-        </div>
-        <div class="select-none bg-main rounded p-4 mt-1">
-
-        <div className="">
-            <div className="flex justify-center">
-                <i className="fas fa-map-marker-alt fa-2x mr-2 text-indigo-500"></i>
-                <input type="text" className="bg-transparent border-2 border-indigo-900 text-center rounded p-1" placeholder="City Name" name="" id="cityInput"/>
-                <button className="px-2 ml-3  rounded" onClick={this.getWeather}>
-                    {this.state.isLoading===true ? loader : btn}
-                </button>
-            </div>
-        </div>
-
-        <hr class="border-indigo-500 my-5"/>
-        <div id="main" class="hidden mt-3">
-          <div class="flex justify-start">
-
-          <div className="flex justify-start">
-            <div className="justify-start">
-                <img id="weathImg" className="w-48" src={this.state.weathImg} alt="" />
-                <div className=" inline-flex">
-                  <i className="fas fa-map-marker-alt fa-2x mr-2 text-indigo-500"></i>
-                  <h4 class="text-indigo-800 text-2xl">{this.state.cityName}, {this.state.countryName}</h4>
+                  <span for="" className="input-group-text bg-1 cityIn">
+                    <button
+                      id="subBtn"
+                      className="btn border-none btn-sm"
+                      onClick={getWeather}
+                    >
+                      {isLoading ? (
+                        <img src={loader} className="loader" />
+                      ) : (
+                        <i className="bi bi-caret-right fs-6"></i>
+                      )}
+                    </button>
+                  </span>
                 </div>
+
+                <WeathCard
+                  temp={temp}
+                  appTemp={appTemp}
+                  weathDesc={weathDesc}
+                  cityName={cityName}
+                  country={country}
+                  weathImg={weathImg}
+                  isInit={isInit}
+                />
+              </div>
+              {/* WeathCard End */}
+
+              <div class="mt-3">
+
+                <ReportCard
+                  isInit={isInit}
+                  temp={temp}
+                  ws={ws}
+                  aqi={airQuality}
+                  cloudIndex={cloudIndex}
+                  desc={weathDesc}
+                />
+
+                <Quote />
+
+                <PressureCard
+                  isInit={isInit}
+                  pres={pres}
+                  slp={slp}
+                  uvi={uvi}
+                  sr={sr}
+                />
+
+                <HumidityCard
+                  isInit={isInit}
+                  humid={humid}
+                  preci={preci}
+                  vis={vis}
+                  dpt={dpt}
+                />
+
+                <WindSpdCard
+                  isInit={isInit}
+                  ws={ws}
+                  windDir={windDir}
+                  cloudIndex={cloudIndex}
+                  airQuality={airQuality}
+                />
+              </div>
+              {/* mt-3 End */}
             </div>
+            {/* bg-1 End */}
           </div>
-
-            <div class="justify-end mx-5">
-                <h1 id="weath" class="text-right text-7xl md:text-9xl text-blue-500 f-noto">{this.state.temp}<sup class="text-blue-400">&#8451;</sup></h1>
-                <div id="weathDesc" class="text-right mt-5 text-2xl md:text-3xl f-lato">
-                {this.state.weathDesc}
-                </div>
-            </div>
-
-          </div>
-
-          <div class="container text-center mt-2 italic">
-              {this.state.quote}
-          </div>
-
-          <hr class="border-indigo-500 my-3"/>
-
-          <div class="container flex justify-center">
-             <div class="border-2 border-blue-300 p-2 mx-2">
-                 <div class="text-left f-lato italic">RealFeel</div>
-                 <img src={rfIcon} class="mx-auto w-10" alt=""/>
-                 <div id="realFeel" class="text-center">{this.state.rf}<sup>&#8451;</sup></div>
-             </div>
-             <div class="border-2 border-blue-300 p-2 mx-2">
-                 <div class="text-left f-lato italic">Humidity</div>
-                 <img src={huIcon} class="mx-auto w-10" alt=""/>
-                 <div id="humid" class="text-center">{this.state.hu}</div>
-             </div>
-             <div class="border-2 border-blue-300 p-2 mx-2">
-                 <div class="text-left f-lato italic">Pressure</div>
-                 <img src={presIcon} class="mx-auto w-10" alt=""/>
-                 <div id="p" class="text-center">{this.state.pres}</div>
-             </div>
-          </div>
-
+          {/* Col End */}
         </div>
+        {/* Row End */}
       </div>
-      <footer class="flex">
-        <div class="mr-auto f-lato">
-        Coded with 💜 in ReactJs
-        </div>
-        <div class="ml-auto">
-        <i class="fab fa-github-square fa-2x" onClick={()=>{
-          window.location.href='https://github.com/akshayitzme/blueweather-v3'
-        }}></i>
-        <i class="ml-2 tg-clr text-white fab fa-telegram fa-2x" onClick={()=>{
-          window.location.href='https://t.me/coderitzme'
-        }}></i>
-        </div>
-      </footer>
-      </div>
-
+      {/* App End */}
+      <Footer />
     </div>
-  )}
+  );
 }
 
 export default App;
