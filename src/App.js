@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from './icons/logo.svg'
 import "./App.css";
 
 // UI Components
