@@ -22,8 +22,6 @@ import fogImg from "./icons/017-foog.png";
 import sunImg from "./icons/039-sun.png";
 import loader from "./icons/810.gif";
 
-const inputElm = document.querySelector("#cityInput");
-
 function App() {
   // State
   const [isInit, setInit] = useState(0);
@@ -96,8 +94,6 @@ function App() {
     }
   };
 
-  const getQuote = () => {};
-
   const getWeather = async () => {
     let city = document.querySelector("#cityInput").value;
     console.log(city);
@@ -164,7 +160,7 @@ function App() {
                       onClick={getWeather}
                     >
                       {isLoading ? (
-                        <img src={loader} className="loader" />
+                        <img alt="loaderr" src={loader} className="loader"/>
                       ) : (
                         <i className="bi bi-caret-right fs-6"></i>
                       )}
