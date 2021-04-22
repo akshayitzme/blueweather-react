@@ -17,9 +17,9 @@ const PressureCard= (props)=>{
                         <span>mb</span> 
                     </div>
                     <div className="d-flex flex-column justify-content-center">
-                        <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="atmospheric pressure at mean sea level" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Sea Level: <span className="text-white">{props.slp}</span></a>
-                        <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="The UVI is a measure of the level of UV radiation" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">UV Index: <span className="text-white">{props.uvi}</span></a>
-                        <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="electromagnetic radiation emitted by the sun" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Radiation: <span className="text-white">{props.sr}</span></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="atmospheric pressure at mean sea level" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Sea Level: <span className="text-white">{props.slp}</span></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="The UVI is a measure of the level of UV radiation" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">UV Index: <span className="text-white">{props.uvi}</span></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="electromagnetic radiation emitted by the sun" className="border-bottom border-2 border-warning clr-31 fw-bold text-decoration-none">Radiation: <span className="text-white">{props.sr}</span></a>
                     </div>
                     
                 </div>

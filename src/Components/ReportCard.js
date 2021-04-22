@@ -1,7 +1,6 @@
 import React from "react";
 
 const ReportCard = (props) => {
-  let temp= props.temp;
   let tips=[]
   const generateTip= ()=>{
 

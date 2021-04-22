@@ -1,7 +1,6 @@
 import React from "react";
 
 const WeathCard = (props) => {
-  const btn = `<div></div>`;
   return (
     <div>
       {props.isInit ? (
