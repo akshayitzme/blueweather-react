@@ -6,7 +6,6 @@ import { lightTheme, darkTheme } from "./Components/Themes"
 import logo from './icons/logo.svg'
 
 // UI Components
-import NavBar from "./Components/Navbar";
 import WeathCard from "./Components/WeathCard";
 import Quote from "./Components/Quote";
 import PressureCard from "./Components/PressureCard";
@@ -23,8 +22,6 @@ import snowImg from "./icons/012-snowy-1.png";
 import fogImg from "./icons/017-foog.png";
 import sunImg from "./icons/039-sun.png";
 import loader from "./icons/810.gif";
-
-const inputElm = document.querySelector("#cityInput");
 
 function App() {
 
@@ -190,7 +187,7 @@ function App() {
                       onClick={getWeather}
                     >
                       {isLoading ? (
-                        <img src={loader} className="loader" />
+                        <img src={loader} className="loader" alt="loader"/>
                       ) : (
                         <i className="bi bi-caret-right fs-6 btnClr"></i>
                       )}
