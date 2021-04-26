@@ -1,16 +1,17 @@
 import React from "react";
 
 const WeathCard = (props) => {
+  const btn = `<div></div>`;
   return (
     <div>
       {props.isInit ? (
         <div>
           <div className="d-flex justify-content-between">
-            <span className="celFont fw-bold text-white">
+            <span className="celFont fw-bold">
               {props.temp}
               <sup>℃</sup>
             </span>
-            <img src={props.weathImg} alt="Weather Icon" className="weathImage" srcset="" />
+            <img src={props.weathImg} alt="" className="weathImage" srcset="" />
           </div>
 
           <span className="clr-3 fw-bold">Feels like {props.appTemp}℃</span>

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./App.css";
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./Components/GlobalStyles";
+import { lightTheme, darkTheme } from "./Components/Themes"
+import logo from './icons/logo.svg'
 
 // UI Components
 import NavBar from "./Components/Navbar";
@@ -21,10 +24,14 @@ import fogImg from "./icons/017-foog.png";
 import sunImg from "./icons/039-sun.png";
 import loader from "./icons/810.gif";
 
+const inputElm = document.querySelector("#cityInput");
+
 function App() {
+
   // State
   const [isInit, setInit] = useState(0);
   const [isLoading, setLoading] = useState(0);
+  const [theme, setTheme] = useState(0);
   const [temp, setTemp] = useState("");
   const [appTemp, setAppTemp] = useState("");
   const [weathDesc, setDesc] = useState("");
@@ -45,7 +52,6 @@ function App() {
   const [airQuality, setAirQuality] = useState("");
 
   // Functions
-
   const pickWeathImg = (code) => {
     switch (code) {
       case 200:
@@ -95,7 +101,6 @@ function App() {
 
   const getWeather = async () => {
     let city = document.querySelector("#cityInput").value;
-    console.log(city);
     if (city.length === 0) {
       alert("Phaa ! Enter Value");
     } else {
@@ -134,12 +139,38 @@ function App() {
     }
   };
 
+  // Dark Mode
+  const themeToggler = () => {
+    !theme ? setTheme(1) : setTheme(0)
+}
+
+
   return (
+    <ThemeProvider theme={theme === 0 ? lightTheme : darkTheme}>
+    <GlobalStyles/>
     <div className="App">
       <div class="app user-select-none">
         <div class="row">
           <div class="col-sm-6 col-md-7 ml-2 mx-auto">
-            <NavBar head="BlueWeather" />
+            {/* <NavBar head="BlueWeather" onC={()=>themeToggler}/> */}
+
+            <div className="d-flex justify-content-between p-2">
+
+            <div className="">
+                <img src={logo} className="logo" alt="" srcset=""/>
+                <span className="h1  f-1 headAnim">BlueWeather</span>
+            </div>
+
+            <div class="mt-2">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={themeToggler}/>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">
+                                 <i class="bi bi-moon clr-2"></i>
+                            </label>
+                        </div>
+                    </div>
+        </div>
+
             <div class=" bg-1 mt-2 p-2 w-full shadow rounded">
               <div className="weathCard shadow gbc-1  rounded p-2">
                 <div className="input-group rounded input-group-sm mb-3">
@@ -159,9 +190,9 @@ function App() {
                       onClick={getWeather}
                     >
                       {isLoading ? (
-                        <img alt="loaderr" src={loader} className="loader"/>
+                        <img src={loader} className="loader" />
                       ) : (
-                        <i className="bi bi-caret-right fs-6"></i>
+                        <i className="bi bi-caret-right fs-6 btnClr"></i>
                       )}
                     </button>
                   </span>
@@ -227,6 +258,7 @@ function App() {
       {/* App End */}
       <Footer />
     </div>
+    </ThemeProvider>
   );
 }
 

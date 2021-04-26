@@ -1,6 +1,7 @@
 import React from "react";
 
 const ReportCard = (props) => {
+  let temp= props.temp;
   let tips=[]
   const generateTip= ()=>{
 
@@ -56,12 +57,11 @@ const ReportCard = (props) => {
   }
 
   generateTip()
-  console.log(tips)
   return (
   <div>
     {props.isInit ?
 
-    (<div className="bg-5 text-white fw-bold rounded p-2 mt-2 list-none">
+    (<div className="bg-5 fw-bold rounded p-2 mt-2 clr-3">
     
       {
         tips.map(item=>{

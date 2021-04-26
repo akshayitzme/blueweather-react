@@ -24,7 +24,7 @@ const Quote= (props)=>{
     let oneQuote= quotes[Math.floor(Math.random()*quotes.length)]
     return(
         <div className="bg-5 rounded p-2 text-center mt-2">
-            <span className="f-3 text-white fs-6">
+            <span className="f-3 clr-3 fs-6">
                 {oneQuote.split('―')[0]}
                 <div className="text-right">
                     <br/><span className="fs-7">-{oneQuote.split('―')[1]}</span>    

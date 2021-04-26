@@ -7,9 +7,6 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-.headAnim {
-  color: #fff;
-}
 @keyframes colorchanged {
   0% {
     color: #eb008b;
@@ -53,33 +50,10 @@ body {
 .bg-1 {
   background-color: #ddc5fa;
 }
-.bg-2 {
-  background-color: #0019ea;
-}
-.bg-3 {
-  background-color: #7c19e8;
-}
-.bg-4 {
-  background-color: #af71f6;
-}
 .bg-5 {
   background-color: #af71f6;
 }
-.bg-6 {
-  background-color: #c69df8;
-}
-.bg-7 {
-  background-color: #ddc5fa;
-}
-.bg-8 {
-  background-color: #f2e7fd;
-}
-.bg-9 {
-  background-color: #b998f7;
-}
-.bg-10 {
-  background-color: rgba(255, 255, 255, 0.384);
-}
+
 .gbc-1 {
   background: #ab67f0;
   background: linear-gradient(
@@ -88,12 +62,7 @@ body {
     rgba(198, 157, 248, 1) 100%
   );
 }
-.border-1 {
-  border-color: rgba(255, 255, 255, 0.911);
-}
-.clr-1 {
-  color: #5d00db;
-}
+
 .clr-2 {
   color: #4100d3;
 }
@@ -204,7 +173,4 @@ body {
 }
 .loader {
   width: 1.7em;
-}
-.list-none{
-  list-style: none;
 }
