@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/static/js/main.be3c322f.chunk.js",
+    "main.js.map": "/static/js/main.be3c322f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4ce8c1e7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4ce8c1e7.js.map",
+    "static/js/2.1ef02fdf.chunk.js": "/static/js/2.1ef02fdf.chunk.js",
+    "static/js/2.1ef02fdf.chunk.js.map": "/static/js/2.1ef02fdf.chunk.js.map",
+    "static/js/3.d4ece0eb.chunk.js": "/static/js/3.d4ece0eb.chunk.js",
+    "static/js/3.d4ece0eb.chunk.js.map": "/static/js/3.d4ece0eb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.1ef02fdf.chunk.js.LICENSE.txt": "/static/js/2.1ef02fdf.chunk.js.LICENSE.txt",
+    "static/media/003-rainy.cfc1c8dd.png": "/static/media/003-rainy.cfc1c8dd.png",
+    "static/media/008-storm.0818a6b4.png": "/static/media/008-storm.0818a6b4.png",
+    "static/media/011-cloudy.e1ed92b6.png": "/static/media/011-cloudy.e1ed92b6.png",
+    "static/media/012-snowy-1.93192ee8.png": "/static/media/012-snowy-1.93192ee8.png",
+    "static/media/017-foog.662892ee.png": "/static/media/017-foog.662892ee.png",
+    "static/media/039-sun.0b43f5c9.png": "/static/media/039-sun.0b43f5c9.png",
+    "static/media/810.243777e6.gif": "/static/media/810.243777e6.gif",
+    "static/media/anemometer.2359f564.svg": "/static/media/anemometer.2359f564.svg",
+    "static/media/humidity.5f22e6c2.svg": "/static/media/humidity.5f22e6c2.svg",
+    "static/media/logo.7780cec4.svg": "/static/media/logo.7780cec4.svg",
+    "static/media/pressure-gauge.f571cf4a.svg": "/static/media/pressure-gauge.f571cf4a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ce8c1e7.js",
+    "static/js/2.1ef02fdf.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.be3c322f.chunk.js"
+  ]
+}
