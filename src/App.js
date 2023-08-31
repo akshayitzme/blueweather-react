@@ -103,7 +103,7 @@ function App() {
     } else {
       if (!isLoading) setLoading(1);
       // const apikey = "e210c112d80b41728f2335ac11bcd82b";
-      // const apikey = "c969e638fd434d9d9c18117f3be2429c";
+      const apikey = "c969e638fd434d9d9c18117f3be2429c";
       await axios
         .get(
           `https://api.weatherbit.io/v2.0/current?city=${city}&key=${apikey}`
